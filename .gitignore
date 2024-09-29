@@ -1,0 +1,52 @@
+# Compiled source files
+*.dll
+*.exe
+*.pdb
+*.mdb
+*.appx
+*.appxbundle
+*.db
+*.dylib
+*.lock.json
+*.a
+*.o
+*.so
+
+# Build directories
+bin/
+obj/
+out/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# VS Code directories
+.vscode/
+.vscode/*
+
+# Rider directories
+.idea/
+.idea/*
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Local history
+.localhistory/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
