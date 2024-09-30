@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{178A4F15-8A38-44CD-B35B-3F60FC21EE8B}|GlobalRoutesApi\\GlobalRoutesApi.csproj|c:\\users\\nesto\\onedrive\\documentos\\github\\globalroutesapi\\globalroutesapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{178A4F15-8A38-44CD-B35B-3F60FC21EE8B}|GlobalRoutesApi\\GlobalRoutesApi.csproj|solutionrelative:globalroutesapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0FC5F55-68F5-4A88-9106-890CCF2CA321}|GlobalRoutes.Infrastructure\\GlobalRoutes.Infrastructure.csproj|c:\\users\\nesto\\onedrive\\documentos\\github\\globalroutesapi\\globalroutes.infrastructure\\contexts\\globalroutescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0FC5F55-68F5-4A88-9106-890CCF2CA321}|GlobalRoutes.Infrastructure\\GlobalRoutes.Infrastructure.csproj|solutionrelative:globalroutes.infrastructure\\contexts\\globalroutescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,9 +28,22 @@
               "RelativeDocumentMoniker": "GlobalRoutesApi\\Program.cs",
               "ToolTip": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutesApi\\Program.cs",
               "RelativeToolTip": "GlobalRoutesApi\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T23:20:29.224Z",
+              "WhenOpened": "2024-09-30T03:10:17.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GlobalRoutesContext.cs",
+              "DocumentMoniker": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Infrastructure\\Contexts\\GlobalRoutesContext.cs",
+              "RelativeDocumentMoniker": "GlobalRoutes.Infrastructure\\Contexts\\GlobalRoutesContext.cs",
+              "ToolTip": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Infrastructure\\Contexts\\GlobalRoutesContext.cs",
+              "RelativeToolTip": "GlobalRoutes.Infrastructure\\Contexts\\GlobalRoutesContext.cs",
+              "ViewState": "AgIAACEAAAAANTMzMzMTwDEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T00:33:52.914Z",
               "EditorCaption": ""
             }
           ]
