@@ -1,12 +1,105 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}|GlobalRoutes.Core\\GlobalRoutes.Core.csproj|c:\\users\\nesto\\onedrive\\documentos\\github\\globalroutesapi\\globalroutes.core\\entities\\languages\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}|GlobalRoutes.Core\\GlobalRoutes.Core.csproj|solutionrelative:globalroutes.core\\entities\\languages\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}|GlobalRoutes.Core\\GlobalRoutes.Core.csproj|c:\\users\\nesto\\onedrive\\documentos\\github\\globalroutesapi\\globalroutes.core\\entities\\users\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}|GlobalRoutes.Core\\GlobalRoutes.Core.csproj|solutionrelative:globalroutes.core\\entities\\users\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}|GlobalRoutes.Core\\GlobalRoutes.Core.csproj|c:\\users\\nesto\\onedrive\\documentos\\github\\globalroutesapi\\globalroutes.core\\entities\\countries\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}|GlobalRoutes.Core\\GlobalRoutes.Core.csproj|solutionrelative:globalroutes.core\\entities\\countries\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E95645F-E4BD-4C17-8069-FDC856A75DD1}|GlobalRoutes.SharedKernel\\GlobalRoutes.SharedKernel.csproj|c:\\users\\nesto\\onedrive\\documentos\\github\\globalroutesapi\\globalroutes.sharedkernel\\entities\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E95645F-E4BD-4C17-8069-FDC856A75DD1}|GlobalRoutes.SharedKernel\\GlobalRoutes.SharedKernel.csproj|solutionrelative:globalroutes.sharedkernel\\entities\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0FC5F55-68F5-4A88-9106-890CCF2CA321}|GlobalRoutes.Infrastructure\\GlobalRoutes.Infrastructure.csproj|c:\\users\\nesto\\onedrive\\documentos\\github\\globalroutesapi\\globalroutes.infrastructure\\contexts\\globalroutescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0FC5F55-68F5-4A88-9106-890CCF2CA321}|GlobalRoutes.Infrastructure\\GlobalRoutes.Infrastructure.csproj|solutionrelative:globalroutes.infrastructure\\contexts\\globalroutescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Language.cs",
+              "DocumentMoniker": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Core\\Entities\\Languages\\Language.cs",
+              "RelativeDocumentMoniker": "GlobalRoutes.Core\\Entities\\Languages\\Language.cs",
+              "ToolTip": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Core\\Entities\\Languages\\Language.cs",
+              "RelativeToolTip": "GlobalRoutes.Core\\Entities\\Languages\\Language.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T00:47:04.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BaseEntity.cs",
+              "DocumentMoniker": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.SharedKernel\\Entities\\BaseEntity.cs",
+              "RelativeDocumentMoniker": "GlobalRoutes.SharedKernel\\Entities\\BaseEntity.cs",
+              "ToolTip": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.SharedKernel\\Entities\\BaseEntity.cs",
+              "RelativeToolTip": "GlobalRoutes.SharedKernel\\Entities\\BaseEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T00:40:13.459Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Country.cs",
+              "DocumentMoniker": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Core\\Entities\\Countries\\Country.cs",
+              "RelativeDocumentMoniker": "GlobalRoutes.Core\\Entities\\Countries\\Country.cs",
+              "ToolTip": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Core\\Entities\\Countries\\Country.cs",
+              "RelativeToolTip": "GlobalRoutes.Core\\Entities\\Countries\\Country.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T00:38:50.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Core\\Entities\\Users\\User.cs",
+              "RelativeDocumentMoniker": "GlobalRoutes.Core\\Entities\\Users\\User.cs",
+              "ToolTip": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Core\\Entities\\Users\\User.cs",
+              "RelativeToolTip": "GlobalRoutes.Core\\Entities\\Users\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T00:35:08.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GlobalRoutesContext.cs",
+              "DocumentMoniker": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Infrastructure\\Contexts\\GlobalRoutesContext.cs",
+              "RelativeDocumentMoniker": "GlobalRoutes.Infrastructure\\Contexts\\GlobalRoutesContext.cs",
+              "ToolTip": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Infrastructure\\Contexts\\GlobalRoutesContext.cs",
+              "RelativeToolTip": "GlobalRoutes.Infrastructure\\Contexts\\GlobalRoutesContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T00:33:52.914Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

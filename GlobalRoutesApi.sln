@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalRoutesApi", "GlobalRoutesApi\GlobalRoutesApi.csproj", "{178A4F15-8A38-44CD-B35B-3F60FC21EE8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalRoutesApi", "GlobalRoutesApi\GlobalRoutesApi.csproj", "{178A4F15-8A38-44CD-B35B-3F60FC21EE8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalRoutes.Core", "GlobalRoutes.Core\GlobalRoutes.Core.csproj", "{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalRoutes.Infrastructure", "GlobalRoutes.Infrastructure\GlobalRoutes.Infrastructure.csproj", "{D0FC5F55-68F5-4A88-9106-890CCF2CA321}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalRoutes.Infrastructure.Importe", "GlobalRoutes.Infrastructure.Importe\GlobalRoutes.Infrastructure.Importe.csproj", "{28F97AC6-B612-476F-9858-F80FC6D91341}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalRoutes.Infrastructure.Migrations", "GlobalRoutes.Infrastructure.Migrations\GlobalRoutes.Infrastructure.Migrations.csproj", "{FCBE50CE-6DA7-4FB5-8F4D-E7179BA23CA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalRoutes.SharedKernel", "GlobalRoutes.SharedKernel\GlobalRoutes.SharedKernel.csproj", "{5E95645F-E4BD-4C17-8069-FDC856A75DD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,26 @@ Global
 		{178A4F15-8A38-44CD-B35B-3F60FC21EE8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{178A4F15-8A38-44CD-B35B-3F60FC21EE8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{178A4F15-8A38-44CD-B35B-3F60FC21EE8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0FC5F55-68F5-4A88-9106-890CCF2CA321}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0FC5F55-68F5-4A88-9106-890CCF2CA321}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0FC5F55-68F5-4A88-9106-890CCF2CA321}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0FC5F55-68F5-4A88-9106-890CCF2CA321}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28F97AC6-B612-476F-9858-F80FC6D91341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28F97AC6-B612-476F-9858-F80FC6D91341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28F97AC6-B612-476F-9858-F80FC6D91341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28F97AC6-B612-476F-9858-F80FC6D91341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCBE50CE-6DA7-4FB5-8F4D-E7179BA23CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCBE50CE-6DA7-4FB5-8F4D-E7179BA23CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCBE50CE-6DA7-4FB5-8F4D-E7179BA23CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCBE50CE-6DA7-4FB5-8F4D-E7179BA23CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E95645F-E4BD-4C17-8069-FDC856A75DD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E95645F-E4BD-4C17-8069-FDC856A75DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E95645F-E4BD-4C17-8069-FDC856A75DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E95645F-E4BD-4C17-8069-FDC856A75DD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
