@@ -14,13 +14,11 @@ namespace GlobalRoutes.Core.Entities.Users
         public int? CityId { get; set; }
         public int? TimeZoneId { get; set; }
         public string? UserImageUrl { get; set; }
-        public int? CountryId { get; set; }
         public int? SubscriptionId { get; set; }
 
         public virtual City? City { get; set; }
         public virtual Subscription? Subscription { get; set; }
         public virtual TimeZones.TimeZone? TimeZone { get; set; }
-        public virtual Country? Country { get; set; }
         public virtual ICollection<UserLanguage> UserLanguages { get; set; }
 
     }

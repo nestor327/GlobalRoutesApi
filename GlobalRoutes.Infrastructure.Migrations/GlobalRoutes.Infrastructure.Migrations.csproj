@@ -11,7 +11,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.5.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="8.0.8" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GlobalRoutes.Core\GlobalRoutes.Core.csproj" />
+    <ProjectReference Include="..\GlobalRoutes.Infrastructure.Importe\GlobalRoutes.Infrastructure.Importer.csproj" />
+    <ProjectReference Include="..\GlobalRoutes.Infrastructure\GlobalRoutes.Infrastructure.csproj" />
+    <ProjectReference Include="..\GlobalRoutes.SharedKernel\GlobalRoutes.SharedKernel.csproj" />
   </ItemGroup>
 
 </Project>
