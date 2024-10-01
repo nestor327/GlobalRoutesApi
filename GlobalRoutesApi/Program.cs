@@ -1,3 +1,7 @@
+using GlobalRoutesApi.Configurations;
+using GlobalRoutesApi.Configurations.Extensions;
+using Microsoft.Extensions.Logging;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,7 +11,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services
+    .AddDbContexts(builder.Configuration)
+    .AddRepositories()
+    .AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies())
+    .AddServices();
+
 var app = builder.Build();
+
+app.MigrateDatabase();
+await app.SeedDatabaseAsync();
 
 app.UseCors(builder => builder
             .AllowAnyOrigin()

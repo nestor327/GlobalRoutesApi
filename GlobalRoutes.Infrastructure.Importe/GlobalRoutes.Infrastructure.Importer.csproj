@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Helpers\" />
-    <Folder Include="Resources\" />
+    <Folder Include="Entities\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="CsvHelper" Version="33.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -23,7 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GlobalRoutes.Core\GlobalRoutes.Core.csproj" />
-    <ProjectReference Include="..\GlobalRoutes.Infrastructure.Importe\GlobalRoutes.Infrastructure.Importer.csproj" />
+    <ProjectReference Include="..\GlobalRoutes.SharedKernel\GlobalRoutes.SharedKernel.csproj" />
   </ItemGroup>
 
 </Project>

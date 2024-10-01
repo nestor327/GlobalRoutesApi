@@ -1,4 +1,5 @@
-﻿using GlobalRoutes.SharedKernel.Entities;
+﻿using GlobalRoutes.Core.Entities.Stops;
+using GlobalRoutes.SharedKernel.Entities;
 
 namespace GlobalRoutes.Core.Entities.Schedules
 {
@@ -16,5 +17,6 @@ namespace GlobalRoutes.Core.Entities.Schedules
         public bool IsActive { get; set; }
 
         public virtual ICollection<ScheduleWeekDay> ScheduleWeekDays { get; set; }
+        public virtual ICollection<Stop> Stops { get; set; }
     }
 }

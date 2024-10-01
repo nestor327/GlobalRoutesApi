@@ -1,4 +1,6 @@
-﻿using GlobalRoutes.SharedKernel.Entities;
+﻿using GlobalRoutes.Core.Entities.Languages;
+using GlobalRoutes.Core.Entities.Schedules;
+using GlobalRoutes.SharedKernel.Entities;
 
 namespace GlobalRoutes.Core.Entities.Buses
 {
@@ -10,5 +12,6 @@ namespace GlobalRoutes.Core.Entities.Buses
         public int? BusTypeId { get; set; }
         
         public virtual BusType? BusType { get; set; }
+        public virtual ICollection<Schedule> Schedules { get; set; }
     }
 }
