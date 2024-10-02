@@ -87,10 +87,12 @@ namespace GlobalRoutes.Infrastructure.Importer
             //Execute First
             await CreateLanguages(".\\languages.csv");
             await CreateCountries(".\\countries.csv");
+            await CreateBusTypes(".\\bustypes.csv");
 
             //Execure Second
-
             await CreateCities(".\\cities.csv");
+            await CreateBuses(".\\buses.csv");
+            await CreateSchedules(".\\schedules.csv");
         }
 
         #region Execute First
@@ -190,6 +192,55 @@ namespace GlobalRoutes.Infrastructure.Importer
             }
         }
 
+        private async Task CreateBusTypes(string path)
+        {
+            try
+            {
+                _logger.LogInformation($"Start of the process of importing seed values for {nameof(BusType)}");
+
+                path = Path.Combine(_env.ContentRootPath.Replace("GlobalRoutesApi", ""), "GlobalRoutesApi", "GlobalRoutes.Infrastructure.Importe", "Resources", path);
+
+                var parsed = CsvImporter<BusType>.FromCsvPath(path);
+                var busTypes = await _busTypeRepository.ListAsync();
+
+                Console.WriteLine("LA CANTIDAD DE TIPOS ES: " + parsed.Count);
+
+                foreach (var busType in parsed)
+                {
+                    var existingBusType = busTypes.FirstOrDefault(bustypes => bustypes.Id == busType.Id);
+
+                    if (existingBusType != null)
+                    {
+                        if (existingBusType.Name != busType.Name || existingBusType.Description != busType.Description)
+                        {
+                            existingBusType.Name = busType.Name;
+                            existingBusType.Description = busType.Description;
+
+                            existingBusType.UpdatedAt = _currentDateUtcZero;
+                            existingBusType.UpdatedBy = _defaultUserId;
+
+                            await _busTypeRepository.UpdateAsync(existingBusType);
+                        }
+                    }
+                    else
+                    {
+                        busType.CreatedAt = _currentDateUtcZero;
+                        busType.CreatedBy = _defaultUserId;
+
+                        await _busTypeRepository.AddAsync(busType);
+                    }
+                }
+
+                _logger.LogInformation($"End of the process of importing seed values for {nameof(BusType)}");
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in the process of importing seed values for {nameof(BusType)} for the following reason {ErrorHelper.GetExceptionError(ex)}");
+            }
+
+
+        }
 
         #endregion
 
@@ -243,6 +294,121 @@ namespace GlobalRoutes.Infrastructure.Importer
             catch (Exception ex)
             {
                 _logger.LogError($"Error in the process of importing seed values for {nameof(City)} for the following reason {ErrorHelper.GetExceptionError(ex)}");
+            }
+        }
+
+        private async Task CreateBuses(string path)
+        {
+            try
+            {
+                _logger.LogInformation($"Start of the process of importing seed values for {nameof(Bus)}");
+
+                path = Path.Combine(_env.ContentRootPath.Replace("GlobalRoutesApi", ""), "GlobalRoutesApi", "GlobalRoutes.Infrastructure.Importe", "Resources", path);
+
+                var parsed = CsvImporter<Bus>.FromCsvPath(path);
+                var buses = await _busRepository.ListAsync();
+
+                foreach (var bus in parsed)
+                {
+                    var existingBus = buses.FirstOrDefault(eleBus => eleBus.Id == bus.Id);
+
+                    if (existingBus != null)
+                    {
+                        if (existingBus.Name != bus.Name || existingBus.BusTypeId != bus.BusTypeId ||
+                            existingBus.Frecuency != bus.Frecuency || existingBus.IsActive != bus.IsActive)
+                        {
+                            existingBus.Name = bus.Name;
+                            existingBus.Frecuency = bus.Frecuency;
+                            existingBus.IsActive = bus.IsActive;
+                            existingBus.BusTypeId = bus.BusTypeId;
+
+                            existingBus.UpdatedAt = _currentDateUtcZero;
+                            existingBus.UpdatedBy = _defaultUserId;
+
+                            existingBus.BusType = await _busTypeRepository.GetByIdAsync(bus.BusTypeId);
+
+                            await _busRepository.UpdateAsync(existingBus);
+                        }
+                    }
+                    else
+                    {
+                        bus.CreatedAt = _currentDateUtcZero;
+                        bus.CreatedBy = _defaultUserId;
+
+                        bus.BusType = await _busTypeRepository.GetByIdAsync(bus.BusTypeId);
+
+                        await _busRepository.AddAsync(bus);
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in the process of importing seed values for {nameof(Bus)} for the following reason {ErrorHelper.GetExceptionError(ex)}");
+            }
+        }
+
+        private async Task CreateSchedules(string path)
+        {
+
+            try
+            {
+                _logger.LogInformation($"Start of the process of importing seed values for {nameof(Schedule)}");
+
+                path = Path.Combine(_env.ContentRootPath.Replace("GlobalRoutesApi", ""), "GlobalRoutesApi", "GlobalRoutes.Infrastructure.Importe", "Resources", path);
+
+                var parsed = CsvImporter<Schedule>.FromCsvPath(path);
+                var schedules = await _scheduleRepository.ListAsync();
+
+                foreach (var schedule in parsed)
+                {
+                    var existingSchedule = schedules.FirstOrDefault(eleSchedule => eleSchedule.Id == schedule.Id);
+
+                    if (existingSchedule != null)
+                    {
+                        if (existingSchedule.Alias != schedule.Alias || existingSchedule.Name != schedule.Name
+                            || existingSchedule.DepartureTime != schedule.DepartureTime || existingSchedule.ArrivalTime != schedule.ArrivalTime
+                            || existingSchedule.Duration != schedule.Duration || existingSchedule.OrigenLatitude != schedule.OrigenLatitude
+                            || existingSchedule.OrigenLogitude != schedule.OrigenLogitude || existingSchedule.DestinoLatitude != schedule.DestinoLatitude
+                            || existingSchedule.DestinoLogitude != schedule.DestinoLogitude || existingSchedule.IsActive != schedule.IsActive
+                            || existingSchedule.BusId != schedule.BusId)
+                        {
+                            existingSchedule.Alias = schedule.Alias;
+                            existingSchedule.Name = schedule.Name;
+                            existingSchedule.DepartureTime = schedule.DepartureTime;
+                            existingSchedule.ArrivalTime = schedule.ArrivalTime;
+                            existingSchedule.Duration = schedule.Duration;
+                            existingSchedule.OrigenLatitude = schedule.OrigenLatitude;
+                            existingSchedule.OrigenLogitude = schedule.OrigenLogitude;
+                            existingSchedule.DestinoLatitude = schedule.DestinoLatitude;
+                            existingSchedule.DestinoLogitude = schedule.DestinoLogitude;
+                            existingSchedule.IsActive = schedule.IsActive;
+                            existingSchedule.BusId = schedule.BusId;
+
+                            existingSchedule.UpdatedAt = _currentDateUtcZero;
+                            existingSchedule.UpdatedBy = _defaultUserId;
+
+                            existingSchedule.Bus = await _busRepository.GetByIdAsync(existingSchedule.BusId);
+
+                            await _scheduleRepository.UpdateAsync(existingSchedule);
+                        }
+                    }
+                    else
+                    {
+                        schedule.CreatedAt = _currentDateUtcZero;
+                        schedule.CreatedBy = _defaultUserId;
+
+                        schedule.Bus = await _busRepository.GetByIdAsync(schedule.BusId);
+
+                        await _scheduleRepository.AddAsync(schedule);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in the process of importing seed values for {nameof(Schedule)} for the following reason {ErrorHelper.GetExceptionError(ex)}");
             }
         }
 

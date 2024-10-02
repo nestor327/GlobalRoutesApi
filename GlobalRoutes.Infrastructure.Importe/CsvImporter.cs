@@ -37,10 +37,10 @@ namespace GlobalRoutes.Infrastructure.Importer
 
             using var csv = new CsvReader(reader, csvConfiguration);
             csv.Context.RegisterClassMap<CountryMap>();
-            //csv.Context.RegisterClassMap<CityMap>();
-            //csv.Context.RegisterClassMap<TimeZoneMap>();
+            csv.Context.RegisterClassMap<BusTypeMap>();
+            csv.Context.RegisterClassMap<BusMap>();
             csv.Context.RegisterClassMap<LanguageMaps>();
-            //csv.Context.RegisterClassMap<RoleMap>();
+            csv.Context.RegisterClassMap<ScheduleMap>();
             //csv.Context.RegisterClassMap<RoleTranslationMap>();
             //csv.Context.RegisterClassMap<JobRoleCategoryMap>();
             //csv.Context.RegisterClassMap<JobRoleMap>();
