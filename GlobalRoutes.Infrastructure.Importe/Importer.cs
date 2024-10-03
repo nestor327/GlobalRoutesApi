@@ -11,6 +11,7 @@ using GlobalRoutes.SharedKernel.Helpers;
 using GlobalRoutes.SharedKernel.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace GlobalRoutes.Infrastructure.Importer
@@ -88,11 +89,16 @@ namespace GlobalRoutes.Infrastructure.Importer
             await CreateLanguages(".\\languages.csv");
             await CreateCountries(".\\countries.csv");
             await CreateBusTypes(".\\bustypes.csv");
+            await CreateAuthorizationRoles(".\\authorization_roles.csv");
+            await CreateWeekDays(".\\week_days.csv");
+            await CreateTimeZones(".\\time_zones.csv");
 
             //Execure Second
             await CreateCities(".\\cities.csv");
             await CreateBuses(".\\buses.csv");
             await CreateSchedules(".\\schedules.csv");
+            await CreateScheduleWeekDays(".\\schedules_week_days.csv");
+            await CreateStops(".\\stops.csv");
         }
 
         #region Execute First
@@ -242,6 +248,138 @@ namespace GlobalRoutes.Infrastructure.Importer
 
         }
 
+        private async Task CreateAuthorizationRoles(string path)
+        {
+            try
+            {
+                _logger.LogInformation($"Start of the process of importing seed values for {nameof(Role)}");
+
+                path = Path.Combine(_env.ContentRootPath.Replace("GlobalRoutesApi", ""), "GlobalRoutesApi", "GlobalRoutes.Infrastructure.Importe", "Resources", path);
+
+                var authorizationRolesCSV = CsvImporter<Role>.FromCsvPath(path);
+                var authorizationRolesDB = await _roleManager.Roles.ToListAsync();
+
+                foreach (var newRole in authorizationRolesCSV)
+                {
+                    var existingRole = authorizationRolesDB.FirstOrDefault(roleDB => roleDB.Id == newRole.Id);
+
+                    if (existingRole != null)
+                    {
+                        if (existingRole.Name != newRole.Name)
+                        {
+                            existingRole.Name = newRole.Name;
+
+                            existingRole.UpdatedAt = _currentDateUtcZero;
+                            existingRole.UpdatedBy = _defaultUserId;
+
+                            await _roleManager.UpdateAsync(existingRole);
+                        }
+                    }
+                    else
+                    {
+                        newRole.CreatedAt = _currentDateUtcZero;
+                        newRole.CreatedBy = _defaultUserId;
+
+                        await _roleManager.CreateAsync(newRole);
+                    }
+                }
+
+                _logger.LogInformation($"End of the process of importing seed values for {nameof(Role)}");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in the process of importing seed values for {nameof(Role)} for the following reason {ErrorHelper.GetExceptionError(ex)}");
+            }
+        }
+
+        private async Task CreateWeekDays(string path)
+        {
+            try
+            {
+                _logger.LogInformation($"Start of the process of importing seed values for {nameof(WeekDay)}");
+
+                path = Path.Combine(_env.ContentRootPath.Replace("GlobalRoutesApi", ""), "GlobalRoutesApi", "GlobalRoutes.Infrastructure.Importe", "Resources", path);
+
+                var parsed = CsvImporter<WeekDay>.FromCsvPath(path);
+                var existingWeekDays = await _weekDayRepository.ListAsync();
+
+                foreach (var newWeekDay in parsed)
+                {
+                    var existingWeekDay = existingWeekDays.FirstOrDefault(existing => existing.Id == newWeekDay.Id);
+
+                    if (existingWeekDay != null)
+                    {
+                        if (existingWeekDay.Name != newWeekDay.Name)
+                        {
+                            existingWeekDay.Name = newWeekDay.Name;
+
+                            existingWeekDay.UpdatedAt = _currentDateUtcZero;
+                            existingWeekDay.UpdatedBy = _defaultUserId;
+
+                            await _weekDayRepository.UpdateAsync(existingWeekDay);
+                        }
+                    }
+                    else
+                    {
+                        newWeekDay.CreatedAt = _currentDateUtcZero;
+                        newWeekDay.CreatedBy = _defaultUserId;
+
+                        await _weekDayRepository.AddAsync(newWeekDay);
+                    }
+                }
+
+                _logger.LogInformation($"End of the process of importing seed values for {nameof(WeekDay)}");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in the process of importing seed values for {nameof(WeekDay)} for the following reason {ErrorHelper.GetExceptionError(ex)}");
+            }
+        }
+
+        private async Task CreateTimeZones(string path)
+        {
+            try
+            {
+                _logger.LogInformation($"Start of the process of importing seed values for {nameof(Core.Entities.TimeZones.TimeZone)}");
+
+                path = Path.Combine(_env.ContentRootPath.Replace("GlobalRoutesApi", ""), "GlobalRoutesApi", "GlobalRoutes.Infrastructure.Importe", "Resources", path);
+
+                var parsed = CsvImporter<Core.Entities.TimeZones.TimeZone>.FromCsvPath(path);
+                var timeZones = await _timeZoneRepository.ListAsync();
+
+                foreach (var timeZone in parsed)
+                {
+                    var existingTimeZone = timeZones.FirstOrDefault(time => time.Id == timeZone.Id);
+
+                    if (existingTimeZone != null)
+                    {
+                        if (existingTimeZone.Offset != timeZone.Offset || existingTimeZone.Text != timeZone.Text)
+                        {
+                            existingTimeZone.Offset = timeZone.Offset;
+                            existingTimeZone.Text = timeZone.Text;
+
+                            existingTimeZone.UpdatedAt = _currentDateUtcZero;
+                            existingTimeZone.UpdatedBy = _defaultUserId;
+
+                            await _timeZoneRepository.UpdateAsync(existingTimeZone);
+                        }
+                    }
+                    else
+                    {
+                        timeZone.CreatedAt = _currentDateUtcZero;
+                        timeZone.CreatedBy = _defaultUserId;
+
+                        await _timeZoneRepository.AddAsync(timeZone);
+                    }
+                }
+
+                _logger.LogInformation($"End of the process of importing seed values for {nameof(Core.Entities.TimeZones.TimeZone)}");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in the process of importing seed values for {nameof(Core.Entities.TimeZones.TimeZone)} for the following reason {ErrorHelper.GetExceptionError(ex)}");
+            }
+        }
         #endregion
 
         #region Execute Second 
@@ -340,8 +478,7 @@ namespace GlobalRoutes.Infrastructure.Importer
                         await _busRepository.AddAsync(bus);
                     }
                 }
-
-
+                _logger.LogInformation($"End of the process of importing seed values for {nameof(Bus)}");
             }
             catch (Exception ex)
             {
@@ -404,11 +541,127 @@ namespace GlobalRoutes.Infrastructure.Importer
                         await _scheduleRepository.AddAsync(schedule);
                     }
                 }
-
+                _logger.LogInformation($"End of the process of importing seed values for {nameof(Schedule)}");
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Error in the process of importing seed values for {nameof(Schedule)} for the following reason {ErrorHelper.GetExceptionError(ex)}");
+            }
+        }
+
+        private async Task CreateScheduleWeekDays(string path)
+        {
+            try
+            {
+                _logger.LogInformation($"Start of the process of importing seed values for {nameof(ScheduleWeekDay)}");
+
+                path = Path.Combine(_env.ContentRootPath.Replace("GlobalRoutesApi", ""), "GlobalRoutesApi", "GlobalRoutes.Infrastructure.Importe", "Resources", path);
+
+                var parsed = CsvImporter<ScheduleWeekDay>.FromCsvPath(path);
+                var scheduleWeekDays = await _scheduleWeekDayRepository.ListAsync();
+
+                foreach (var scheduleWeekDay in parsed)
+                {
+                    var existingScheduleWeekDay = scheduleWeekDays.FirstOrDefault(eleSchedule => eleSchedule.Id == scheduleWeekDay.Id);
+
+                    if (existingScheduleWeekDay != null)
+                    {
+
+                        if (
+                            existingScheduleWeekDay.IsActive != scheduleWeekDay.IsActive || existingScheduleWeekDay.ScheduleId != scheduleWeekDay.ScheduleId
+                            || existingScheduleWeekDay.WeekDayId != scheduleWeekDay.WeekDayId
+                            )
+                        {
+                            existingScheduleWeekDay.IsActive = scheduleWeekDay.IsActive;
+                            existingScheduleWeekDay.ScheduleId = scheduleWeekDay.ScheduleId;
+                            existingScheduleWeekDay.WeekDayId = scheduleWeekDay.WeekDayId;
+
+                            existingScheduleWeekDay.UpdatedAt = _currentDateUtcZero;
+                            existingScheduleWeekDay.UpdatedBy = _defaultUserId;
+
+                            existingScheduleWeekDay.Schedule = await _scheduleRepository.GetByIdAsync(existingScheduleWeekDay.ScheduleId);
+                            existingScheduleWeekDay.WeekDay = await _weekDayRepository.GetByIdAsync(existingScheduleWeekDay.WeekDayId);
+
+                            await _scheduleWeekDayRepository.UpdateAsync(existingScheduleWeekDay);
+                        }
+                    }
+                    else
+                    {
+                        scheduleWeekDay.CreatedAt = _currentDateUtcZero;
+                        scheduleWeekDay.CreatedBy = _defaultUserId;
+
+                        scheduleWeekDay.Schedule = await _scheduleRepository.GetByIdAsync(scheduleWeekDay.ScheduleId);
+                        scheduleWeekDay.WeekDay = await _weekDayRepository.GetByIdAsync(scheduleWeekDay.WeekDayId);
+
+                        await _scheduleWeekDayRepository.AddAsync(scheduleWeekDay);
+                    }
+                }
+
+                _logger.LogInformation($"End of the process of importing seed values for {nameof(ScheduleWeekDay)}");
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in the process of importing seed values for {nameof(ScheduleWeekDay)} for the following reason {ErrorHelper.GetExceptionError(ex)}");
+            }
+        }
+
+        private async Task CreateStops(string path)
+        {
+            try
+            {
+                _logger.LogInformation($"Start of the process of importing seed values for {nameof(Stop)}");
+
+                path = Path.Combine(_env.ContentRootPath.Replace("GlobalRoutesApi", ""), "GlobalRoutesApi", "GlobalRoutes.Infrastructure.Importe", "Resources", path);
+
+                var parsed = CsvImporter<Stop>.FromCsvPath(path);
+                var stops = await _stopRepository.ListAsync();
+
+                foreach (var stop in parsed)
+                {
+                    var existingStop = stops.FirstOrDefault(eleStop => eleStop.Id == stop.Id);
+
+                    if (existingStop != null)
+                    {
+
+                        if (
+                            existingStop.Name != stop.Name || existingStop.ScheduleId != stop.ScheduleId
+                            || existingStop.TotalArrivalTime != stop.TotalArrivalTime || existingStop.Latitude != stop.Latitude
+                            || existingStop.Longitude != stop.Longitude
+                            )
+                        {
+                            existingStop.Name = stop.Name;
+                            existingStop.ScheduleId = stop.ScheduleId;
+                            existingStop.TotalArrivalTime = stop.TotalArrivalTime;
+                            existingStop.Latitude = stop.Latitude;
+                            existingStop.Longitude = stop.Longitude;
+
+                            existingStop.UpdatedAt = _currentDateUtcZero;
+                            existingStop.UpdatedBy = _defaultUserId;
+
+                            existingStop.Schedules = await _scheduleRepository.GetByIdAsync(existingStop.ScheduleId);
+                         
+                            await _stopRepository.UpdateAsync(existingStop);
+                        }
+                    }
+                    else
+                    {
+                        stop.CreatedAt = _currentDateUtcZero;
+                        stop.CreatedBy = _defaultUserId;
+
+                        stop.Schedules = await _scheduleRepository.GetByIdAsync(stop.ScheduleId);
+
+                        await _stopRepository.AddAsync(stop);
+                    }
+
+                }
+
+                _logger.LogInformation($"End of the process of importing seed values for {nameof(Stop)}");
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in the process of importing seed values for {nameof(Stop)} for the following reason {ErrorHelper.GetExceptionError(ex)}");
             }
         }
 

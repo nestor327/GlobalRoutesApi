@@ -41,20 +41,10 @@ namespace GlobalRoutes.Infrastructure.Importer
             csv.Context.RegisterClassMap<BusMap>();
             csv.Context.RegisterClassMap<LanguageMaps>();
             csv.Context.RegisterClassMap<ScheduleMap>();
-            //csv.Context.RegisterClassMap<RoleTranslationMap>();
-            //csv.Context.RegisterClassMap<JobRoleCategoryMap>();
-            //csv.Context.RegisterClassMap<JobRoleMap>();
-            //csv.Context.RegisterClassMap<BenefitMap>();
-            //csv.Context.RegisterClassMap<SkillMap>();
-            //csv.Context.RegisterClassMap<SeniorityMap>();
-            //csv.Context.RegisterClassMap<AppClientMap>();
-            //csv.Context.RegisterClassMap<IndustriesMap>();
-            //csv.Context.RegisterClassMap<LanguageLevelMap>();
-            //csv.Context.RegisterClassMap<StoryPointMap>();
-            //csv.Context.RegisterClassMap<PriorityLevelMap>();
-            //csv.Context.RegisterClassMap<GoalStatusCategoryMap>();
-            //csv.Context.RegisterClassMap<ProjectStatusCategoryMap>();
-            //csv.Context.RegisterClassMap<ProjectStatusMap>();
+            csv.Context.RegisterClassMap<RoleMap>();
+            csv.Context.RegisterClassMap<ScheduleWeekDayMap>();
+            csv.Context.RegisterClassMap<StopMap>();
+            csv.Context.RegisterClassMap<TimeZoneMap>();
 
             return csv.GetRecords<T>().ToList();
         }
