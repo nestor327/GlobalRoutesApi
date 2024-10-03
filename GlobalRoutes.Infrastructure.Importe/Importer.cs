@@ -3,6 +3,7 @@ using GlobalRoutes.Core.Entities.Buses;
 using GlobalRoutes.Core.Entities.Countries;
 using GlobalRoutes.Core.Entities.Languages;
 using GlobalRoutes.Core.Entities.Roles;
+using GlobalRoutes.Core.Entities.Routes;
 using GlobalRoutes.Core.Entities.Schedules;
 using GlobalRoutes.Core.Entities.Stops;
 using GlobalRoutes.Core.Entities.Subscriptions;
@@ -35,6 +36,8 @@ namespace GlobalRoutes.Infrastructure.Importer
         private readonly IAsyncRepository<Subscription> _subscriptionRepository;
         private readonly IAsyncRepository<Core.Entities.TimeZones.TimeZone> _timeZoneRepository;
         private readonly IAsyncRepository<WeekDay> _weekDayRepository;
+        private readonly IAsyncRepository<Route> _routeRepository;
+        private readonly IAsyncRepository<Coordinate> _coordinateRepository;
 
         //Reference global variables for seed value creations and updates
         private readonly DateTime _currentDateUtcZero = DateTime.UtcNow;
@@ -59,6 +62,8 @@ namespace GlobalRoutes.Infrastructure.Importer
             IAsyncRepository<Subscription> subscriptionRepository,
             IAsyncRepository<Core.Entities.TimeZones.TimeZone> timeZoneRepository,
             IAsyncRepository<WeekDay> weekDayRepository,
+            IAsyncRepository<Coordinate> coordinateRepository,
+            IAsyncRepository<Route> routeRepository,
             ILogger<Importer> logger,
             IMapper mapper,
             IWebHostEnvironment env
@@ -78,6 +83,8 @@ namespace GlobalRoutes.Infrastructure.Importer
             _subscriptionRepository = subscriptionRepository;
             _timeZoneRepository = timeZoneRepository;
             _weekDayRepository = weekDayRepository;
+            _routeRepository = routeRepository;
+            _coordinateRepository = coordinateRepository;
             _logger = logger;
             _mapper = mapper;
             _env = env;
@@ -92,12 +99,14 @@ namespace GlobalRoutes.Infrastructure.Importer
             await CreateAuthorizationRoles(".\\authorization_roles.csv");
             await CreateWeekDays(".\\week_days.csv");
             await CreateTimeZones(".\\time_zones.csv");
+            await CreateRoutes(".\\routes.csv");
 
             //Execure Second
             await CreateCities(".\\cities.csv");
             await CreateBuses(".\\buses.csv");
             await CreateSchedules(".\\schedules.csv");
             await CreateScheduleWeekDays(".\\schedules_week_days.csv");
+            await CreateCoordinates(".\\coordinates.csv");
             await CreateStops(".\\stops.csv");
         }
 
@@ -380,6 +389,52 @@ namespace GlobalRoutes.Infrastructure.Importer
                 _logger.LogError($"Error in the process of importing seed values for {nameof(Core.Entities.TimeZones.TimeZone)} for the following reason {ErrorHelper.GetExceptionError(ex)}");
             }
         }
+        
+        private async Task CreateRoutes(string path)
+        {
+            try
+            {
+                _logger.LogInformation($"Start of the process of importing seed values for {nameof(Route)}");
+
+                path = Path.Combine(_env.ContentRootPath.Replace("GlobalRoutesApi", ""), "GlobalRoutesApi", "GlobalRoutes.Infrastructure.Importe", "Resources", path);
+
+                var parsed = CsvImporter<Route>.FromCsvPath(path);
+                var routes = await _routeRepository.ListAsync();
+
+                foreach (var route in parsed)
+                {
+                    var existingroute = routes.FirstOrDefault(rou => rou.Id == route.Id);
+
+                    if (existingroute != null)
+                    {
+                        if (existingroute.OriginName != route.OriginName || existingroute.DestinationName != route.DestinationName)
+                        {
+                            existingroute.OriginName = route.OriginName;
+                            existingroute.DestinationName = route.DestinationName;
+
+                            existingroute.UpdatedAt = _currentDateUtcZero;
+                            existingroute.UpdatedBy = _defaultUserId;
+
+                            await _routeRepository.UpdateAsync(existingroute);
+                        }
+                    }
+                    else
+                    {
+                        route.CreatedAt = _currentDateUtcZero;
+                        route.CreatedBy = _defaultUserId;
+
+                        await _routeRepository.AddAsync(route);
+                    }
+                }
+
+                _logger.LogInformation($"End of the process of importing seed values for {nameof(Route)}");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in the process of importing seed values for {nameof(Route)} for the following reason {ErrorHelper.GetExceptionError(ex)}");
+            }
+        }
+
         #endregion
 
         #region Execute Second 
@@ -606,6 +661,59 @@ namespace GlobalRoutes.Infrastructure.Importer
             }
         }
 
+        private async Task CreateCoordinates(string path)
+        {
+            try
+            {
+                _logger.LogInformation($"Start of the process of importing seed values for {nameof(Coordinate)}");
+
+                path = Path.Combine(_env.ContentRootPath.Replace("GlobalRoutesApi", ""), "GlobalRoutesApi", "GlobalRoutes.Infrastructure.Importe", "Resources", path);
+
+                var parsed = CsvImporter<Coordinate>.FromCsvPath(path);
+                var coordinates = await _coordinateRepository.ListAsync();
+
+                foreach (var coordinate in parsed)
+                {
+                    var existingCoordinate = coordinates.FirstOrDefault(coord => coord.Id == coordinate.Id);
+
+                    if (existingCoordinate != null)
+                    {
+                        if (existingCoordinate.Latitude != coordinate.Latitude || existingCoordinate.Longitude != coordinate.Longitude
+                            || existingCoordinate.RouteId != coordinate.RouteId
+                            )
+                        {
+                            existingCoordinate.Latitude = coordinate.Latitude;
+                            existingCoordinate.Longitude = coordinate.Longitude;
+                            existingCoordinate.RouteId = coordinate.RouteId;
+
+                            existingCoordinate.UpdatedAt = _currentDateUtcZero;
+                            existingCoordinate.UpdatedBy = _defaultUserId;
+
+                            existingCoordinate.Route = await _routeRepository.GetByIdAsync(existingCoordinate.RouteId);
+
+                            await _coordinateRepository.UpdateAsync(existingCoordinate);
+                        }
+                    }
+                    else
+                    {
+                        coordinate.CreatedAt = _currentDateUtcZero;
+                        coordinate.CreatedBy = _defaultUserId;
+
+                        coordinate.Route = await _routeRepository.GetByIdAsync(coordinate.RouteId);
+
+                        await _coordinateRepository.AddAsync(coordinate);
+                    }
+                }
+
+                _logger.LogInformation($"End of the process of importing seed values for {nameof(Coordinate)}");
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in the process of importing seed values for {nameof(Coordinate)} for the following reason {ErrorHelper.GetExceptionError(ex)}");
+            }
+        }
+
         private async Task CreateStops(string path)
         {
             try
@@ -627,7 +735,7 @@ namespace GlobalRoutes.Infrastructure.Importer
                         if (
                             existingStop.Name != stop.Name || existingStop.ScheduleId != stop.ScheduleId
                             || existingStop.TotalArrivalTime != stop.TotalArrivalTime || existingStop.Latitude != stop.Latitude
-                            || existingStop.Longitude != stop.Longitude
+                            || existingStop.Longitude != stop.Longitude || existingStop.CoordinateId != stop.CoordinateId
                             )
                         {
                             existingStop.Name = stop.Name;
@@ -635,11 +743,13 @@ namespace GlobalRoutes.Infrastructure.Importer
                             existingStop.TotalArrivalTime = stop.TotalArrivalTime;
                             existingStop.Latitude = stop.Latitude;
                             existingStop.Longitude = stop.Longitude;
+                            existingStop.CoordinateId = stop.CoordinateId;
 
                             existingStop.UpdatedAt = _currentDateUtcZero;
                             existingStop.UpdatedBy = _defaultUserId;
 
                             existingStop.Schedules = await _scheduleRepository.GetByIdAsync(existingStop.ScheduleId);
+                            existingStop.Coordinate = await _coordinateRepository.GetByIdAsync(existingStop.CoordinateId);
                          
                             await _stopRepository.UpdateAsync(existingStop);
                         }
@@ -650,6 +760,7 @@ namespace GlobalRoutes.Infrastructure.Importer
                         stop.CreatedBy = _defaultUserId;
 
                         stop.Schedules = await _scheduleRepository.GetByIdAsync(stop.ScheduleId);
+                        stop.Coordinate = await _coordinateRepository.GetByIdAsync(stop.CoordinateId);
 
                         await _stopRepository.AddAsync(stop);
                     }

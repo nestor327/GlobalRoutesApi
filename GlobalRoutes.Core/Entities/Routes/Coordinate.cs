@@ -1,4 +1,5 @@
-﻿using GlobalRoutes.SharedKernel.Entities;
+﻿using GlobalRoutes.Core.Entities.Stops;
+using GlobalRoutes.SharedKernel.Entities;
 
 namespace GlobalRoutes.Core.Entities.Routes
 {

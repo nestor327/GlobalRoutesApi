@@ -45,6 +45,8 @@ namespace GlobalRoutes.Infrastructure.Importer
             csv.Context.RegisterClassMap<ScheduleWeekDayMap>();
             csv.Context.RegisterClassMap<StopMap>();
             csv.Context.RegisterClassMap<TimeZoneMap>();
+            csv.Context.RegisterClassMap<RouteMap>();
+            csv.Context.RegisterClassMap<CoordinateMap>();
 
             return csv.GetRecords<T>().ToList();
         }
