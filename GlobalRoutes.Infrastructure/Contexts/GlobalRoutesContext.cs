@@ -2,6 +2,7 @@
 using GlobalRoutes.Core.Entities.Countries;
 using GlobalRoutes.Core.Entities.Languages;
 using GlobalRoutes.Core.Entities.Roles;
+using GlobalRoutes.Core.Entities.Routes;
 using GlobalRoutes.Core.Entities.Schedules;
 using GlobalRoutes.Core.Entities.Stops;
 using GlobalRoutes.Core.Entities.Subscriptions;
@@ -30,6 +31,10 @@ namespace GlobalRoutes.Infrastructure.Contexts
         //Language
         public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<UserLanguage> UserLanguages { get; set; }
+
+        //Routes
+        public virtual DbSet<Route> Routes { get; set; }
+        public virtual DbSet<Coordinate> Coordinates { get; set; }
 
         //Schedule
         public virtual DbSet<Schedule> Schedules { get; set; }

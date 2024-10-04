@@ -3,6 +3,7 @@ using System;
 using GlobalRoutes.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GlobalRoutes.Infrastructure.Migrations.Migrations
 {
     [DbContext(typeof(GlobalRoutesContext))]
-    partial class GlobalRoutesContextModelSnapshot : ModelSnapshot
+    [Migration("20241003050051_AddRoutesEntities")]
+    partial class AddRoutesEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -661,9 +664,6 @@ namespace GlobalRoutes.Infrastructure.Migrations.Migrations
                     b.Property<string>("ArchivedBy")
                         .HasColumnType("text");
 
-                    b.Property<int?>("CoordinateId")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -706,8 +706,6 @@ namespace GlobalRoutes.Infrastructure.Migrations.Migrations
                         .HasColumnType("boolean");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CoordinateId");
 
                     b.HasIndex("ScheduleId");
 
@@ -1138,15 +1136,9 @@ namespace GlobalRoutes.Infrastructure.Migrations.Migrations
 
             modelBuilder.Entity("GlobalRoutes.Core.Entities.Stops.Stop", b =>
                 {
-                    b.HasOne("GlobalRoutes.Core.Entities.Routes.Coordinate", "Coordinate")
-                        .WithMany()
-                        .HasForeignKey("CoordinateId");
-
                     b.HasOne("GlobalRoutes.Core.Entities.Schedules.Schedule", "Schedules")
                         .WithMany("Stops")
                         .HasForeignKey("ScheduleId");
-
-                    b.Navigation("Coordinate");
 
                     b.Navigation("Schedules");
                 });

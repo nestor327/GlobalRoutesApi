@@ -1,4 +1,5 @@
-﻿using GlobalRoutes.Core.Entities.Stops;
+﻿using GlobalRoutes.Core.Entities.Buses;
+using GlobalRoutes.Core.Entities.Stops;
 using GlobalRoutes.SharedKernel.Entities;
 
 namespace GlobalRoutes.Core.Entities.Schedules
@@ -15,7 +16,9 @@ namespace GlobalRoutes.Core.Entities.Schedules
         public double DestinoLatitude { get; set; }
         public double DestinoLogitude { get; set; }
         public bool IsActive { get; set; }
+        public int? BusId { get; set; }
 
+        public Bus? Bus { get; set; }
         public virtual ICollection<ScheduleWeekDay> ScheduleWeekDays { get; set; }
         public virtual ICollection<Stop> Stops { get; set; }
     }

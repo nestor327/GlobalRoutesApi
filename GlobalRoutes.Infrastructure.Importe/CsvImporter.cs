@@ -37,24 +37,16 @@ namespace GlobalRoutes.Infrastructure.Importer
 
             using var csv = new CsvReader(reader, csvConfiguration);
             csv.Context.RegisterClassMap<CountryMap>();
-            //csv.Context.RegisterClassMap<CityMap>();
-            //csv.Context.RegisterClassMap<TimeZoneMap>();
+            csv.Context.RegisterClassMap<BusTypeMap>();
+            csv.Context.RegisterClassMap<BusMap>();
             csv.Context.RegisterClassMap<LanguageMaps>();
-            //csv.Context.RegisterClassMap<RoleMap>();
-            //csv.Context.RegisterClassMap<RoleTranslationMap>();
-            //csv.Context.RegisterClassMap<JobRoleCategoryMap>();
-            //csv.Context.RegisterClassMap<JobRoleMap>();
-            //csv.Context.RegisterClassMap<BenefitMap>();
-            //csv.Context.RegisterClassMap<SkillMap>();
-            //csv.Context.RegisterClassMap<SeniorityMap>();
-            //csv.Context.RegisterClassMap<AppClientMap>();
-            //csv.Context.RegisterClassMap<IndustriesMap>();
-            //csv.Context.RegisterClassMap<LanguageLevelMap>();
-            //csv.Context.RegisterClassMap<StoryPointMap>();
-            //csv.Context.RegisterClassMap<PriorityLevelMap>();
-            //csv.Context.RegisterClassMap<GoalStatusCategoryMap>();
-            //csv.Context.RegisterClassMap<ProjectStatusCategoryMap>();
-            //csv.Context.RegisterClassMap<ProjectStatusMap>();
+            csv.Context.RegisterClassMap<ScheduleMap>();
+            csv.Context.RegisterClassMap<RoleMap>();
+            csv.Context.RegisterClassMap<ScheduleWeekDayMap>();
+            csv.Context.RegisterClassMap<StopMap>();
+            csv.Context.RegisterClassMap<TimeZoneMap>();
+            csv.Context.RegisterClassMap<RouteMap>();
+            csv.Context.RegisterClassMap<CoordinateMap>();
 
             return csv.GetRecords<T>().ToList();
         }

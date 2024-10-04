@@ -3,6 +3,7 @@ using System;
 using GlobalRoutes.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GlobalRoutes.Infrastructure.Migrations.Migrations
 {
     [DbContext(typeof(GlobalRoutesContext))]
-    partial class GlobalRoutesContextModelSnapshot : ModelSnapshot
+    [Migration("20241003143500_AddNavegationEntitiesToStopEntitie")]
+    partial class AddNavegationEntitiesToStopEntitie
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
