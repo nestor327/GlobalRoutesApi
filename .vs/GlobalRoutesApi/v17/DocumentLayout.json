@@ -3,40 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{28F97AC6-B612-476F-9858-F80FC6D91341}|GlobalRoutes.Infrastructure.Importe\\GlobalRoutes.Infrastructure.Importer.csproj|c:\\users\\nesto\\onedrive\\documentos\\github\\globalroutesapi\\globalroutes.infrastructure.importe\\resources\\stops.csv||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{28F97AC6-B612-476F-9858-F80FC6D91341}|GlobalRoutes.Infrastructure.Importe\\GlobalRoutes.Infrastructure.Importer.csproj|solutionrelative:globalroutes.infrastructure.importe\\resources\\stops.csv||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}|GlobalRoutes.Core\\GlobalRoutes.Core.csproj|c:\\users\\nesto\\onedrive\\documentos\\github\\globalroutesapi\\globalroutes.core\\entities\\stops\\stop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}|GlobalRoutes.Core\\GlobalRoutes.Core.csproj|solutionrelative:globalroutes.core\\entities\\stops\\stop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28F97AC6-B612-476F-9858-F80FC6D91341}|GlobalRoutes.Infrastructure.Importe\\GlobalRoutes.Infrastructure.Importer.csproj|c:\\users\\nesto\\onedrive\\documentos\\github\\globalroutesapi\\globalroutes.infrastructure.importe\\maps\\stopmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28F97AC6-B612-476F-9858-F80FC6D91341}|GlobalRoutes.Infrastructure.Importe\\GlobalRoutes.Infrastructure.Importer.csproj|solutionrelative:globalroutes.infrastructure.importe\\maps\\stopmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28F97AC6-B612-476F-9858-F80FC6D91341}|GlobalRoutes.Infrastructure.Importe\\GlobalRoutes.Infrastructure.Importer.csproj|c:\\users\\nesto\\onedrive\\documentos\\github\\globalroutesapi\\globalroutes.infrastructure.importe\\importer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28F97AC6-B612-476F-9858-F80FC6D91341}|GlobalRoutes.Infrastructure.Importe\\GlobalRoutes.Infrastructure.Importer.csproj|solutionrelative:globalroutes.infrastructure.importe\\importer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}|GlobalRoutes.Core\\GlobalRoutes.Core.csproj|c:\\users\\nesto\\onedrive\\documentos\\github\\globalroutesapi\\globalroutes.core\\entities\\routes\\coordinate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}|GlobalRoutes.Core\\GlobalRoutes.Core.csproj|solutionrelative:globalroutes.core\\entities\\routes\\coordinate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}|GlobalRoutes.Core\\GlobalRoutes.Core.csproj|c:\\users\\nesto\\onedrive\\documentos\\github\\globalroutesapi\\globalroutes.core\\entities\\schedules\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}|GlobalRoutes.Core\\GlobalRoutes.Core.csproj|solutionrelative:globalroutes.core\\entities\\schedules\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28F97AC6-B612-476F-9858-F80FC6D91341}|GlobalRoutes.Infrastructure.Importe\\GlobalRoutes.Infrastructure.Importer.csproj|c:\\users\\nesto\\onedrive\\documentos\\github\\globalroutesapi\\globalroutes.infrastructure.importe\\maps\\timezonemap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28F97AC6-B612-476F-9858-F80FC6D91341}|GlobalRoutes.Infrastructure.Importe\\GlobalRoutes.Infrastructure.Importer.csproj|solutionrelative:globalroutes.infrastructure.importe\\maps\\timezonemap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}|GlobalRoutes.Core\\GlobalRoutes.Core.csproj|c:\\users\\nesto\\onedrive\\documentos\\github\\globalroutesapi\\globalroutes.core\\entities\\users\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E0DBAD14-2847-4D49-82C5-36EA3AA24A78}|GlobalRoutes.Core\\GlobalRoutes.Core.csproj|solutionrelative:globalroutes.core\\entities\\users\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28F97AC6-B612-476F-9858-F80FC6D91341}|GlobalRoutes.Infrastructure.Importe\\GlobalRoutes.Infrastructure.Importer.csproj|c:\\users\\nesto\\onedrive\\documentos\\github\\globalroutesapi\\globalroutes.infrastructure.importe\\maps\\bustypemap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28F97AC6-B612-476F-9858-F80FC6D91341}|GlobalRoutes.Infrastructure.Importe\\GlobalRoutes.Infrastructure.Importer.csproj|solutionrelative:globalroutes.infrastructure.importe\\maps\\bustypemap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{178A4F15-8A38-44CD-B35B-3F60FC21EE8B}|GlobalRoutesApi\\GlobalRoutes.Api.csproj|c:\\users\\nesto\\onedrive\\documentos\\github\\globalroutesapi\\globalroutesapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{178A4F15-8A38-44CD-B35B-3F60FC21EE8B}|GlobalRoutesApi\\GlobalRoutes.Api.csproj|solutionrelative:globalroutesapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -51,116 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "stops.csv",
-              "DocumentMoniker": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Infrastructure.Importe\\Resources\\stops.csv",
-              "RelativeDocumentMoniker": "GlobalRoutes.Infrastructure.Importe\\Resources\\stops.csv",
-              "ToolTip": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Infrastructure.Importe\\Resources\\stops.csv",
-              "RelativeToolTip": "GlobalRoutes.Infrastructure.Importe\\Resources\\stops.csv",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
-              "WhenOpened": "2024-10-03T14:38:27.626Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "StopMap.cs",
-              "DocumentMoniker": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Infrastructure.Importe\\Maps\\StopMap.cs",
-              "RelativeDocumentMoniker": "GlobalRoutes.Infrastructure.Importe\\Maps\\StopMap.cs",
-              "ToolTip": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Infrastructure.Importe\\Maps\\StopMap.cs",
-              "RelativeToolTip": "GlobalRoutes.Infrastructure.Importe\\Maps\\StopMap.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T14:38:18.805Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Coordinate.cs",
-              "DocumentMoniker": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Core\\Entities\\Routes\\Coordinate.cs",
-              "RelativeDocumentMoniker": "GlobalRoutes.Core\\Entities\\Routes\\Coordinate.cs",
-              "ToolTip": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Core\\Entities\\Routes\\Coordinate.cs",
-              "RelativeToolTip": "GlobalRoutes.Core\\Entities\\Routes\\Coordinate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T14:25:58.191Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Schedule.cs",
-              "DocumentMoniker": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Core\\Entities\\Schedules\\Schedule.cs",
-              "RelativeDocumentMoniker": "GlobalRoutes.Core\\Entities\\Schedules\\Schedule.cs",
-              "ToolTip": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Core\\Entities\\Schedules\\Schedule.cs",
-              "RelativeToolTip": "GlobalRoutes.Core\\Entities\\Schedules\\Schedule.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T14:25:46.845Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Stop.cs",
-              "DocumentMoniker": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Core\\Entities\\Stops\\Stop.cs",
-              "RelativeDocumentMoniker": "GlobalRoutes.Core\\Entities\\Stops\\Stop.cs",
-              "ToolTip": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Core\\Entities\\Stops\\Stop.cs",
-              "RelativeToolTip": "GlobalRoutes.Core\\Entities\\Stops\\Stop.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T14:18:11.085Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Core\\Entities\\Users\\User.cs",
-              "RelativeDocumentMoniker": "GlobalRoutes.Core\\Entities\\Users\\User.cs",
-              "ToolTip": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Core\\Entities\\Users\\User.cs",
-              "RelativeToolTip": "GlobalRoutes.Core\\Entities\\Users\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T04:55:18.148Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "BusTypeMap.cs",
-              "DocumentMoniker": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Infrastructure.Importe\\Maps\\BusTypeMap.cs",
-              "RelativeDocumentMoniker": "GlobalRoutes.Infrastructure.Importe\\Maps\\BusTypeMap.cs",
-              "ToolTip": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Infrastructure.Importe\\Maps\\BusTypeMap.cs",
-              "RelativeToolTip": "GlobalRoutes.Infrastructure.Importe\\Maps\\BusTypeMap.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T04:33:56.229Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "TimeZoneMap.cs",
-              "DocumentMoniker": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Infrastructure.Importe\\Maps\\TimeZoneMap.cs",
-              "RelativeDocumentMoniker": "GlobalRoutes.Infrastructure.Importe\\Maps\\TimeZoneMap.cs",
-              "ToolTip": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Infrastructure.Importe\\Maps\\TimeZoneMap.cs",
-              "RelativeToolTip": "GlobalRoutes.Infrastructure.Importe\\Maps\\TimeZoneMap.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T04:33:01.404Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Importer.cs",
-              "DocumentMoniker": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Infrastructure.Importe\\Importer.cs",
-              "RelativeDocumentMoniker": "GlobalRoutes.Infrastructure.Importe\\Importer.cs",
-              "ToolTip": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutes.Infrastructure.Importe\\Importer.cs",
-              "RelativeToolTip": "GlobalRoutes.Infrastructure.Importe\\Importer.cs",
-              "ViewState": "AgIAAMwCAAAAgAAAAADgv/oCAABmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T00:46:50.662Z",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutesApi\\appsettings.json",
+              "RelativeDocumentMoniker": "GlobalRoutesApi\\appsettings.json",
+              "ToolTip": "C:\\Users\\nesto\\OneDrive\\Documentos\\GitHub\\GlobalRoutesApi\\GlobalRoutesApi\\appsettings.json*",
+              "RelativeToolTip": "GlobalRoutesApi\\appsettings.json*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-04T02:22:45.684Z",
               "EditorCaption": ""
             }
           ]
