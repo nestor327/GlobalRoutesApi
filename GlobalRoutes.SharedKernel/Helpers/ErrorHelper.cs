@@ -4,7 +4,7 @@ namespace GlobalRoutes.SharedKernel.Helpers
 {
     public static class ErrorHelper
     {
-        public static string GetValidationErrors(List<ValidationError> errors)
+        public static string GetValidationErrors(IEnumerable<ValidationError> errors)
         {
             return string.Join(",", errors.Select(x => x.ErrorMessage));
         }

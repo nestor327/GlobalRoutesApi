@@ -1,3 +1,4 @@
+using GlobalRoutes.Api.Middewares;
 using GlobalRoutesApi.Configurations;
 using GlobalRoutesApi.Configurations.Extensions;
 using Microsoft.Extensions.Logging;
@@ -15,7 +16,9 @@ builder.Services
     .AddDbContexts(builder.Configuration)
     .AddRepositories()
     .AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies())
-    .AddServices();
+    .AddServices()
+    .AddCustomApiVersioning()
+    .AddLanguages();
 
 var app = builder.Build();
 
@@ -35,6 +38,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseRequestLocalization();
+
+app.UseMiddleware<LanguageMiddleware>();
 
 app.UseAuthorization();
 
